@@ -1,0 +1,11 @@
+{% macro vertical_title(title='') -%}
+    {% if title %}
+    <div class="col-1 title-column">
+        <h1>
+        {% for letter in title|upper %}
+            {{ letter }}<br>
+        {% endfor %}
+        </h1>
+    </div>
+    {% endif %}
+{%- endmacro %}
