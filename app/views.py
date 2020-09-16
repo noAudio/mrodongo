@@ -7,4 +7,12 @@ def index():
 
 @app.route('/about')
 def about():
-    return 'About'
+    return render_template('public/about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('public/contact.html')
+
+@app.route('/test_route')
+def test_route():
+    return render_template('public/unknown_error.html')
