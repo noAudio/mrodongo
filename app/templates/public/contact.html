@@ -54,6 +54,10 @@
 
 {% block content_title %}
 <div class="col-1 title-column">
-    <h1>C<br>O<br>N<br>T<br>A<br>C<br>T<br></h1>
+    <h1>
+    {% for letter in page_title|upper %}
+        {{ letter|e }}<br>
+    {% endfor %}
+    </h1>
 </div>
 {% endblock content_title  %}

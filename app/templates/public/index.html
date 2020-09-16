@@ -20,6 +20,10 @@
 
 {% block content_title %}
 <div class="col-1 title-column">
-    <h1>H<br>O<br>M<br>E<br></h1>
+    <h1>
+    {% for letter in page_title|upper %}
+        {{ letter|e }}<br>
+    {% endfor %}
+    </h1>
 </div>
 {% endblock content_title %}
