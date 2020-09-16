@@ -41,12 +41,20 @@
 {% endblock content %}
 
 
+{% macro vertical_title(title='') -%}
+    {% if title %}
+    <div class="col-1 title-column">
+        <h1>
+        {% for letter in title|upper %}
+            {{ letter }}<br>
+        {% endfor %}
+        </h1>
+    </div>
+    {% endif %}
+{%- endmacro %}
+
 {% block content_title %}
-<div class="col-1 title-column">
-    <h1>
-    {% for letter in page_title|upper %}
-        {{ letter|e }}<br>
-    {% endfor %}
-    </h1>
-</div>
+{{ vertical_title(page_title) }}
 {% endblock content_title %}
+
+
