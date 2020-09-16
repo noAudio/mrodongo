@@ -80,6 +80,11 @@ h1, h2, h3, h4, h5, h6, ul, li, nav {
   }
 }
 
+.active {
+  font-weight: bold;
+  background-image: none!important;
+}
+
 .nav-column {
   position: sticky;
   /*transform: translateZ(0);*/
