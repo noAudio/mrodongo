@@ -24,6 +24,10 @@ def index():
 
 @app.route('/<page_name>')
 def page(page_name):
+    if page_name in ['blog', 'projects']:
+        page_title = 'Coming Soon'
+        return render_template('public/coming_soon.html', page_title=page_title, nav_links=nav_links)
+    
     html_page = page_name
     if page_name in notitle_list:
         subtitle = page_name.replace('_', ' ').title()
@@ -32,12 +36,8 @@ def page(page_name):
     else:
         page_title = page_name.replace('_', ' ').title()
         subtitle = ''
+        
     return render_template(f'public/{html_page}.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, skills=skills)
-
-# @app.route('/about')
-# def about():
-#     page_title = 'About'
-#     return render_template('public/about.html', page_title=page_title, skills=skills, nav_links=nav_links)
 
 @app.route('/contact/sent')
 def contact_sent():
