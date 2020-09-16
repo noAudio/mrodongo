@@ -24,11 +24,9 @@
                 <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-2">
                         <ul class="nav navbar-nav d-flex flex-column justify-content-start align-items-start align-content-start">
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="/home">Home</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="/about">About</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="/projects">Projects</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="/contact">Contact</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="/blog">Blog</a></li>
+                            {% for page, link in nav_links.items() %}
+                                <li class="nav-item" role="presentation"><a class="nav-link {% if page_title == page %}active{% endif %}" href="{{ link }}">{{ page }}</a></li>
+                            {% endfor %} 
                         </ul>
                     </div>
                 </div>
@@ -41,11 +39,13 @@
                     <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav d-flex flex-column main-nav">
-                                <li class="nav-item" role="presentation"><a class="nav-link bleh active" href="/">Home</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link bleh" href="/about">About</a></li>
+                                {% for page, link in nav_links.items() %}
+                                        <li class="nav-item" role="presentation"><a class="nav-link bleh {% if page_title == page %}active{% endif %}" href="{{ link }}">{{ page }}</a></li>
+                                {% endfor %} 
+                                <!-- <li class="nav-item" role="presentation"><a class="nav-link bleh" href="/about">About</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="/projects">Projects</a></li>
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="/contact">Contact</a></li>
-                                <li class="nav-item" role="presentation"><a class="nav-link" href="/blog">Blog</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="/blog">Blog</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -56,8 +56,8 @@
             </div>
             {% block content_title %}{% endblock %}
             <div class="col-2 d-flex justify-content-center nav-column">
-                <nav class="navbar navbar-light navbar-expand-md desktop">
-                    <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-md desktop zero-pad-mar">
+                    <div class="container-fluid zero-pad-mar">
                         <ul class="nav navbar-nav d-flex flex-column align-items-center">
                             <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tooltip" data-bs-tooltip="" data-placement="right" href="https://github.com/noAudio" title="Check out my github"><i class="icon ion-social-github contact-nav"></i></a></li>
                             <li class="nav-item"
