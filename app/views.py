@@ -1,3 +1,4 @@
+from werkzeug.utils import html
 from app import app
 from flask import render_template, redirect, request
 from datetime import datetime
@@ -14,15 +15,29 @@ skills = ['Python', 'SQL', 'HTML/CSS/JS', 'Bootstrap']
 
 weekend = ('Saturday', 'Sunday')
 
+notitle_list = ['coming_soon', 'denied', 'error_404', 'unknown_error']
+
 @app.route('/')
 def index():
     page_title = 'Home'
     return render_template('public/index.html', page_title=page_title, nav_links=nav_links)
 
-@app.route('/about')
-def about():
-    page_title = 'About'
-    return render_template('public/about.html', page_title=page_title, skills=skills, nav_links=nav_links)
+@app.route('/<page_name>')
+def page(page_name):
+    html_page = page_name
+    if page_name in notitle_list:
+        subtitle = page_name.replace('_', ' ').title()
+        page_title = ''
+        page_name = ''
+    else:
+        page_title = page_name.replace('_', ' ').title()
+        subtitle = ''
+    return render_template(f'public/{html_page}.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, skills=skills)
+
+# @app.route('/about')
+# def about():
+#     page_title = 'About'
+#     return render_template('public/about.html', page_title=page_title, skills=skills, nav_links=nav_links)
 
 @app.route('/contact/sent')
 def contact_sent():
