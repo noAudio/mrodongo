@@ -1,7 +1,5 @@
 {% extends 'public/templates/public_template.html' %}
 
-{% block page_title %}{{ page_title }} - Sent!{% endblock page_title %}
-
 
 {% block content %}
 <div class="row d-flex d-sm-flex flex-sm-column flex-sm-grow-1 flex-sm-fill justify-content-sm-center align-items-sm-center align-content-sm-center flex-md-row flex-lg-row flex-lg-grow-1 flex-xl-row hero-mobile"
@@ -19,14 +17,3 @@
     </div>
 </div>
 {% endblock content %}
-
-
-{% block content_title %}
-<div class="col-1 title-column">
-    <h1>
-    {% for letter in page_title|upper %}
-        {{ letter|e }}<br>
-    {% endfor %}
-    </h1>
-</div>
-{% endblock content_title %}
