@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, redirect, request
 
 nav_links = {
     'Home': '/',
@@ -23,9 +23,25 @@ def about():
     page_title = 'About'
     return render_template('public/about.html', page_title=page_title, skills=skills, nav_links=nav_links)
 
-@app.route('/contact')
+@app.route('/contact/sent')
+def contact_sent():
+    page_title = 'Contact'
+    subtitle = 'Sent'
+    return render_template('public/contact_sent.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links)
+
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
     page_title = 'Contact'
+
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        if request.form['email']:
+            phone = request.form['phone']
+        message = request.form['message']
+
+        return redirect('/contact/sent')
+
     return render_template('public/contact.html', page_title=page_title, nav_links=nav_links)
 
 @app.route('/test_route')
