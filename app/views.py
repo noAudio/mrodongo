@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, redirect, request
+from datetime import datetime
 
 nav_links = {
     'Home': '/',
@@ -27,7 +28,9 @@ def about():
 def contact_sent():
     page_title = 'Contact'
     subtitle = 'Sent'
-    return render_template('public/contact_sent.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links)
+    day_today = datetime.today().strftime('%A')
+    print(day_today)
+    return render_template('public/contact_sent.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, weekend=weekend, day_today=day_today)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -49,7 +52,6 @@ def test_route():
     return render_template('public/unknown_error.html', nav_links=nav_links)
 
 
-# from datetime import datetime
 # day_today = datetime.today().strftime('%A')
 # weekend = ('Saturday', 'Wednesday')
 # print(day_today)
