@@ -1,0 +1,199 @@
+h1, h2, h3, h4, h5, h6, ul, li, nav {
+  font-family: 'Syne', sans-serif;
+}
+
+* {
+  font-family: 'Montserrat';
+}
+
+.hero {
+  height: 90vh;
+  padding: 0;
+  margin: 0;
+}
+
+.logo-bar {
+  background-color: rgba(255,255,255,0.68);
+  padding: 0;
+  margin: 0;
+}
+
+.purple {
+  color: #6C63FF;
+}
+
+@media (min-width: 768px) {
+  .purple {
+    color: #6C63FF;
+  }
+}
+
+.contact-nav:hover {
+  color: #6C63FF;
+}
+
+@media (min-width: 768px) {
+  .contact-nav:hover {
+    color: #6C63FF;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-nav {
+    font-size: 20px;
+    color: black;
+  }
+}
+
+.contact-nav {
+  font-size: 20px;
+  color: black;
+}
+
+.mobile {
+  display: initial;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-items {
+    display: none!important;
+  }
+}
+
+@media (min-width: 300px) {
+  .hero-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.nav-column {
+  position: sticky;
+  /*transform: translateZ(0);*/
+}
+
+@media (min-width: 768px) {
+  #hero-illustration {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+#hero-illustration {
+  width: 100vw;
+  height: inherit;
+}
+
+.main-nav a {
+  color: #6C63FF!important;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #6C63FF, #6C63FF);
+  background-position: 15% bottom;
+  background-repeat: no-repeat;
+  background-size: 10% 2px;
+  transition: background-size ease .5s;
+}
+
+.main-nav a:hover {
+  color: #6C63FF!important;
+  background-size: 40% 2px;
+  font-weight: bold;
+}
+
+.navbar.navbar-light.navbar-expand-md.mobile-items {
+  background-color: rgba(255,255,255,0.68);
+}
+
+section .container {
+  padding: 0;
+  margin: 0;
+}
+
+.title-column {
+  color: #6C63FF;
+}
+
+.skills li {
+  font-family: 'Montserrat';
+  list-style: square outside none;
+  color: #6C63FF;
+}
+
+form input, form textarea {
+  border-width: 2px!important;
+  border-radius: 0!important;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #6C63FF!important;
+  border-width: 2px!important;
+  border-radius: 0!important;
+}
+
+#send-button:hover {
+  background-color: #6C63FF!important;
+  color: white!important;
+  transition: background-color 0.5s;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #6C63FF;
+}
+
+@media (max-width: 576px) {
+  .content {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills {
+    align-items: center;
+    justify-content: center;
+    width: 300%!important;
+    align-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .title-column {
+    display: none;
+  }
+}
+
+#mrodongo {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 576px) {
+  .form-group .input-label {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  #send-button {
+    width: 100%!important;
+  }
+}
+
+@media (max-width: 576px) {
+  #sent {
+    width: 100%!important;
+  }
+}
+

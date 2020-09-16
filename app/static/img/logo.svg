@@ -1,0 +1,17 @@
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" width="205" height="45" viewBox="0 0 205 45">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 38px;
+        font-family: Syne-Medium, Syne;
+        font-weight: 500;
+      }
+
+      .cls-2 {
+        fill: #6c63ff;
+      }
+    </style>
+  </defs>
+  <text id="mr." class="cls-1" transform="translate(0 35)"><tspan x="0" y="0">mr.</tspan></text>
+  <text id="odongo" class="cls-2" transform="translate(66 35)"><tspan x="0" y="0">odongo</tspan></text>
+</svg>
