@@ -17,7 +17,7 @@ def page(page_name):
     if page_name in ['blog', 'projects']:
         subtitle = 'Coming Soon'
         return render_template('public/coming_soon.html', subtitle=subtitle, nav_links=nav_links)
-    elif page_name.title() not in pages:
+    elif page_name.capitalize() not in pages:
         abort(404)
     else:
         html_page = page_name
