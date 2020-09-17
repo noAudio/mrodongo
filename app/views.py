@@ -4,6 +4,7 @@ from flask import render_template, redirect, request, abort
 from datetime import datetime
 from app.logic.data.page_data import nav_links, weekend, notitle_list, pages
 from app.logic.data.portfolio_data import skills
+from app.logic.actions.contact_actions import create_email, send_email
 
 
 @app.route('/')
@@ -37,7 +38,7 @@ def contact_sent():
     page_title = 'Contact'
     subtitle = 'Sent'
     day_today = datetime.today().strftime('%A')
-    print(day_today)
+    
     return render_template('public/contact_sent.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, weekend=weekend, day_today=day_today)
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -46,10 +47,13 @@ def contact():
 
     if request.method == 'POST':
         name = request.form['name']
-        email = request.form['email']
-        if request.form['email']:
-            phone = request.form['phone']
+        set_contact = request.form['email']
+        if request.form['phone']:
+            set_contact = set_contact + ' ' + str(request.form['phone'])
         message = request.form['message']
+
+        email = create_email(name, set_contact, message)
+        send_email(email)
 
         return redirect('/contact/sent')
 
