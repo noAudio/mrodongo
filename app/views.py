@@ -1,6 +1,6 @@
 from werkzeug.utils import html
 from app import app
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, abort
 from datetime import datetime
 
 nav_links = {
@@ -27,17 +27,21 @@ def page(page_name):
     if page_name in ['blog', 'projects']:
         page_title = 'Coming Soon'
         return render_template('public/coming_soon.html', page_title=page_title, nav_links=nav_links)
-    
-    html_page = page_name
-    if page_name in notitle_list:
-        subtitle = page_name.replace('_', ' ').title()
-        page_title = ''
-        page_name = ''
+    elif page_name.title() not in nav_links.keys():
+        abort(400)
     else:
-        page_title = page_name.replace('_', ' ').title()
-        subtitle = ''
-        
-    return render_template(f'public/{html_page}.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, skills=skills)
+        html_page = page_name
+        if page_name in notitle_list:
+            subtitle = page_name.replace('_', ' ').title()
+            page_title = ''
+            page_name = ''
+        else:
+            page_title = page_name.replace('_', ' ').title()
+            subtitle = ''
+            
+        return render_template(f'public/{html_page}.html', page_title=page_title, subtitle=subtitle, nav_links=nav_links, skills=skills)
+
+
 
 @app.route('/contact/sent')
 def contact_sent():
