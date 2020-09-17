@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request
-from app.views import nav_links
+from app.logic.data.page_data import nav_links
 
 @app.errorhandler(404)
 def error_404(e):

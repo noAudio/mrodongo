@@ -2,20 +2,9 @@ from werkzeug.utils import html
 from app import app
 from flask import render_template, redirect, request, abort
 from datetime import datetime
+from app.logic.data.page_data import nav_links, weekend, notitle_list, pages
+from app.logic.data.portfolio_data import skills
 
-nav_links = {
-    'Home': '/',
-    'About': '/about',
-    'Projects': '/projects',
-    'Contact': '/contact',
-    'Blog': '/blog',
-}
-
-skills = ['Python', 'SQL', 'HTML/CSS/JS', 'Bootstrap']
-
-weekend = ('Saturday', 'Sunday')
-
-notitle_list = ['coming_soon', 'denied', 'error_404', 'unknown_error']
 
 @app.route('/')
 def index():
@@ -25,10 +14,10 @@ def index():
 @app.route('/<page_name>')
 def page(page_name):
     if page_name in ['blog', 'projects']:
-        page_title = 'Coming Soon'
-        return render_template('public/coming_soon.html', page_title=page_title, nav_links=nav_links)
-    elif page_name.title() not in nav_links.keys():
-        abort(400)
+        subtitle = 'Coming Soon'
+        return render_template('public/coming_soon.html', subtitle=subtitle, nav_links=nav_links)
+    elif page_name.title() not in pages:
+        abort(404)
     else:
         html_page = page_name
         if page_name in notitle_list:
@@ -68,13 +57,4 @@ def contact():
 
 @app.route('/test_route')
 def test_route():
-    return render_template('public/unknown_error.html', nav_links=nav_links)
-
-
-# day_today = datetime.today().strftime('%A')
-# weekend = ('Saturday', 'Wednesday')
-# print(day_today)
-# if day_today in weekend:
-#     print('Its the weekend baby!')
-# else:
-#     print('Weekend, it is not')
+    return render_template('public/unexpected_error.html', nav_links=nav_links)
