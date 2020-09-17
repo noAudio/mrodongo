@@ -14,7 +14,6 @@ def create_email(name, contact, message):
     email['to'] = receiver
     email['subject'] = subject
     email.set_content(f'Message from: {name} \n\nContact: {contact} \n\nMessage:\n{message}')
-    print(email)
     return email
 
 def send_email(email):
