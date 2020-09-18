@@ -1,12 +1,6 @@
 import smtplib
 from email.message import EmailMessage
-
-sender = 'Mr Odongo Contact Form'
-receiver = 'samieodd@gmail.com'
-subject = 'Contact Form Message'
-
-_usrnm = 'botmrodongo@gmail.com'
-_pwd = 'MrOdongoEmailBot'
+from email_config import sender, receiver, subject, usrnm, pwd
 
 def create_email(name, contact, message):
     email = EmailMessage()
@@ -21,5 +15,5 @@ def send_email(email):
     with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
         smtp.ehlo()
         smtp.starttls()
-        smtp.login(_usrnm, _pwd)
+        smtp.login(usrnm, pwd)
         smtp.send_message(email)
