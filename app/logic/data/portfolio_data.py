@@ -1,1 +1,3 @@
-skills = ['Python', 'SQL', 'HTML/CSS/JS', 'Bootstrap']
+from typing import List
+
+skills: List[str] = ['Python', 'SQL', 'HTML/CSS/JS', 'Bootstrap']

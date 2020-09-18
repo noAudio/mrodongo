@@ -1,4 +1,7 @@
-nav_links = {
+from typing import Dict, List, Tuple
+
+
+nav_links: Dict[str, str] = {
     'Home': '/',
     'About': '/about',
     'Projects': '/projects',
@@ -6,8 +9,8 @@ nav_links = {
     'Blog': '/blog',
 }
 
-weekend = ('Saturday', 'Sunday')
+weekend: Tuple[str, str] = ('Saturday', 'Sunday')
 
-notitle_list = ['coming_soon', 'denied', 'error_404', 'unknown_error']
+notitle_list: List[str] = ['coming_soon', 'denied', 'error_404', 'unknown_error']
 
-pages = ['Home', 'About', 'Projects', 'Contact', 'Contact_sent', 'Blog', 'Denied', 'Error_404', 'Unexpected_error', 'Coming_soon', 'Index']
+pages: List[str] = ['Home', 'About', 'Projects', 'Contact', 'Contact_sent', 'Blog', 'Denied', 'Error_404', 'Unexpected_error', 'Coming_soon', 'Index']
